@@ -15,7 +15,7 @@ class PostQuerySet(models.QuerySet):
         ).order_by("-likes_count")
         return popular_posts
 
-    def fetch_with_commetnts_count(self):#Быстрее чем annotate так как нет нескольких Count в одном запросе и лучше происходит объединение
+    def fetch_with_comments_count(self):#Быстрее чем annotate так как нет нескольких Count в одном запросе и лучше происходит объединение
         posts = list(self)
         posts_ids = [post.id for post in posts]
         posts_with_comments = Post.objects.filter(
