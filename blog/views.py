@@ -113,7 +113,7 @@ def tag_filter(request, tag_title):
             .select_related("author")
             .with_tags()[:5]
             .fetch_with_comments_count()
-        )
+    )
 
     related_posts = (
         tag.posts.annotate(
